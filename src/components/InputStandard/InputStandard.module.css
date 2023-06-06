@@ -1,0 +1,24 @@
+.label {
+    text-align: left;
+    margin: 10px 10px 5px 5px;
+}
+
+.input {
+    padding: 10px;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    color: #424040;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+
+.input:hover {
+    outline: none;
+    border: solid 1px #93AD18;
+}
+
+.input:focus {
+    outline: none;
+    border: solid 1px #93AD18;
+}
