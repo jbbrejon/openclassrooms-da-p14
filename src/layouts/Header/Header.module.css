@@ -1,0 +1,52 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    width: 95%;
+    margin: 20px;
+    border: solid 1px lightgray;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.identity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    height: 110px;
+    object-fit: cover;
+    padding: 10px;
+}
+
+.appName {
+    display: flex;
+    font-size: 40px;
+    color: grey;
+}
+
+.nav {
+    display: flex;
+}
+
+.link {
+    padding: 10px;
+    font-size: 18px;
+    transition: 0.5s all;
+}
+
+.navLink {
+    display: flex;
+    color: grey;
+    transition: 0.5s;
+    text-shadow: 1px 1px 1px rgb(223, 219, 219);
+}
+
+.navLink:hover {
+    color: #93AD18;
+    opacity: 0.8;
+}
