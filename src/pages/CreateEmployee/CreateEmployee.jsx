@@ -3,6 +3,7 @@ import { useEffect } from "react"
 
 // Import components
 import Heading1 from "../../components/Heading1/Heading1";
+import FormCreateEmployee from "../../components/FormCreateEmployee/FormCreateEmployee";
 
 function CreateEmployee() {
     useEffect(() => {
@@ -12,6 +13,7 @@ function CreateEmployee() {
     return (
         <main>
             <Heading1 h1="Create Employee" />
+            <FormCreateEmployee />
         </main>
     )
 }
