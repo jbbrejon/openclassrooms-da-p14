@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 // Import components
 import InputStandard from '../InputStandard/InputStandard';
+import ButtonSave from '../ButtonSave/ButtonSave';
 
 // Import CSS module
 import styles from './FormCreateEmployee.module.css'
@@ -13,9 +14,15 @@ function FormCreateEmployee() {
         firstName: '',
         lastName: '',
     }
-
     const [employee, setEmployee] = useState(initialState);
-    console.log(employee)
+
+    // Submit form
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Reset form
+        setEmployee(initialState);
+    }
+
     return (
         <>
             <form className={styles.form}>
@@ -35,6 +42,7 @@ function FormCreateEmployee() {
                     value={employee.lastName}
                     setState={e => { setEmployee({ ...employee, lastName: e.target.value }); }}
                 />
+                <ButtonSave action={handleSubmit} />
             </form>
         </>
     )
