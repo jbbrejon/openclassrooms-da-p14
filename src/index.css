@@ -31,3 +31,20 @@ main {
   border: solid 1px lightgray;
   border-radius: 15px;
 }
+
+/* Lists */
+ul {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.active {
+  color: #93AD18;
+}
