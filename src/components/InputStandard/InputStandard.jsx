@@ -19,7 +19,10 @@ InputStandard.propTypes = {
     type: PropTypes.string,
     id: PropTypes.string,
     name: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
     setState: PropTypes.func,
 };
 
