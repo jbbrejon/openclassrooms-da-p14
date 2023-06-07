@@ -1,5 +1,6 @@
 // Import dependencies
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 // Import components
 import InputStandard from '../InputStandard/InputStandard';
@@ -11,11 +12,11 @@ import styles from './FormCreateEmployee.module.css'
 function FormCreateEmployee() {
     // Local state (Form inputs)
     const initialState = {
+        id: uuidv4(),
         firstName: '',
         lastName: '',
     }
     const [employee, setEmployee] = useState(initialState);
-
 
     // Check if form is valid
     const getIsFormValid = () => {
