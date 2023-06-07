@@ -5,17 +5,23 @@ import PropTypes from 'prop-types';
 import styles from './ButtonSave.module.css'
 
 // React component : Save button
-function ButtonSave({ action }) {
+function ButtonSave({ status, valid, invalid }) {
 
     return (
         <>
-            <button className={styles.button} type='submit' onClick={action}>Save</button>
+            {status ? (
+                <button className={styles.buttonDisabled} type='submit' disabled={status}>{invalid}</button>
+            ) :
+                (<button className={styles.button} type='submit' disabled={status}>{valid}</button>)
+            }
         </>
     )
 }
 
 ButtonSave.propTypes = {
-    action: PropTypes.func,
+    status: PropTypes.bool,
+    valid: PropTypes.string,
+    invalid: PropTypes.string,
 };
 
 export default ButtonSave
