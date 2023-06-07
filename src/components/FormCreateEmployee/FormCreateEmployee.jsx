@@ -16,16 +16,30 @@ function FormCreateEmployee() {
     }
     const [employee, setEmployee] = useState(initialState);
 
+
+    // Check if form is valid
+    const getIsFormValid = () => {
+        return (
+            employee.firstName &&
+            employee.lastName
+        )
+    }
+
+    // Clear form after submission
+    const clearForm = () => {
+        setEmployee(initialState);
+    }
+
     // Submit form
     const handleSubmit = (e) => {
+        console.log("test")
         e.preventDefault();
-        // Reset form
-        setEmployee(initialState);
+        clearForm();
     }
 
     return (
         <>
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <InputStandard
                     type="text"
                     label="First Name"
@@ -42,7 +56,11 @@ function FormCreateEmployee() {
                     value={employee.lastName}
                     setState={e => { setEmployee({ ...employee, lastName: e.target.value }); }}
                 />
-                <ButtonSave action={handleSubmit} />
+                <ButtonSave
+                    status={!getIsFormValid()}
+                    valid="Create Employee"
+                    invalid="Please fill in all fields"
+                />
             </form>
         </>
     )
