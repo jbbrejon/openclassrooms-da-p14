@@ -3,6 +3,7 @@ import { useEffect } from "react"
 
 // Import components
 import Heading1 from "../../components/Heading1/Heading1";
+import TableEmployees from "../../components/TableEmployees/TableEmployees";
 
 function EmployeeList() {
     useEffect(() => {
@@ -12,6 +13,7 @@ function EmployeeList() {
     return (
         <main>
             <Heading1 h1="Employee List" />
+            <TableEmployees />
         </main>
     )
 }
