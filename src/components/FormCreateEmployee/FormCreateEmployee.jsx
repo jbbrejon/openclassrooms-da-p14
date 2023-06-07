@@ -1,6 +1,8 @@
 // Import dependencies
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import * as employeeListActions from '../../redux/slices/employeeListSlice'
 
 // Import components
 import InputStandard from '../InputStandard/InputStandard';
@@ -10,6 +12,8 @@ import ButtonSave from '../ButtonSave/ButtonSave';
 import styles from './FormCreateEmployee.module.css'
 
 function FormCreateEmployee() {
+    // Global state (new instance of useDispatch)
+    const dispatch = useDispatch()
     // Local state (Form inputs)
     const initialState = {
         id: uuidv4(),
@@ -33,8 +37,8 @@ function FormCreateEmployee() {
 
     // Submit form
     const handleSubmit = (e) => {
-        console.log("test")
         e.preventDefault();
+        dispatch(employeeListActions.addEmployee(employee));
         clearForm();
     }
 
