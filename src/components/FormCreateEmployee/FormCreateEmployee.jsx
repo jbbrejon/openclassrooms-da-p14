@@ -51,7 +51,7 @@ function FormCreateEmployee() {
                     id="first-name"
                     name="firstName"
                     value={employee.firstName}
-                    setState={e => { setEmployee({ ...employee, firstName: e.target.value }); }}
+                    change={e => { setEmployee({ ...employee, firstName: e.target.value }); }}
                 />
                 <InputStandard
                     type="text"
@@ -59,7 +59,7 @@ function FormCreateEmployee() {
                     id="last-name"
                     name="lastName"
                     value={employee.lastName}
-                    setState={e => { setEmployee({ ...employee, lastName: e.target.value }); }}
+                    change={e => { setEmployee({ ...employee, lastName: e.target.value }); }}
                 />
                 <ButtonSave
                     status={!getIsFormValid()}
