@@ -1,7 +1,6 @@
 .form {
     display: flex;
     flex-direction: column;
-    margin: 20px;
     padding: 20px;
     border: solid 1px lightgrey;
     border-radius: 5px;
