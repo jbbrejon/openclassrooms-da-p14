@@ -12,8 +12,10 @@ import ButtonSave from '../ButtonSave/ButtonSave';
 import styles from './FormCreateEmployee.module.css'
 
 function FormCreateEmployee() {
+
     // Global state (new instance of useDispatch)
     const dispatch = useDispatch()
+
     // Local state (Form inputs)
     const initialState = {
         id: uuidv4(),
@@ -23,35 +25,35 @@ function FormCreateEmployee() {
     const [employee, setEmployee] = useState(initialState);
 
     // Check if form is valid
-    const getIsFormValid = () => {
+    function getIsFormValid() {
         return (
             employee.firstName &&
             employee.lastName
         )
     }
 
-    // Clear form after submission
-    const clearForm = () => {
-        setEmployee(initialState);
+    // Update employee properties
+    function changeHandler(e) {
+        setEmployee({ ...employee, [e.target.name]: e.target.value });
     }
 
     // Submit form
-    const handleSubmit = (e) => {
+    function submitHandler(e) {
         e.preventDefault();
         dispatch(employeeListActions.addEmployee(employee));
-        clearForm();
+        setEmployee(initialState);
     }
 
     return (
         <>
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <form className={styles.form} onSubmit={submitHandler}>
                 <InputStandard
                     type="text"
                     label="First Name"
                     id="first-name"
                     name="firstName"
                     value={employee.firstName}
-                    change={e => { setEmployee({ ...employee, firstName: e.target.value }); }}
+                    change={changeHandler}
                 />
                 <InputStandard
                     type="text"
@@ -59,7 +61,7 @@ function FormCreateEmployee() {
                     id="last-name"
                     name="lastName"
                     value={employee.lastName}
-                    change={e => { setEmployee({ ...employee, lastName: e.target.value }); }}
+                    change={changeHandler}
                 />
                 <ButtonSave
                     status={!getIsFormValid()}
