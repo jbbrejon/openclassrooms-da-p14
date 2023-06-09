@@ -30,6 +30,40 @@ function TableEmployees() {
         }
     }
 
+    const sortData = (e) => {
+        const cat = e.target.dataset.cat;
+        const prop = e.target.dataset.prop;
+        const order = e.target.dataset.order;
+        let result = [...localEmployees];
+        if (order === "descending") {
+            if (cat === "text") {
+                result = result.sort(function (a, b) { return b[prop].localeCompare(a[prop]) })
+            }
+            else if (cat === "number") {
+                result = result.sort(function (a, b) { return b[prop] - a[prop] })
+            }
+            else {
+                console.log("cat unknown")
+            }
+
+        }
+        else if (order === "ascending") {
+            if (cat === "text") {
+                result = result.sort(function (a, b) { return a[prop].localeCompare(b[prop]) })
+            }
+            else if (cat === "number") {
+                result = result.sort(function (a, b) { return a[prop] - b[prop] })
+            }
+            else {
+                console.log("cat unknown")
+            }
+        }
+        else {
+            console.log("order unknown")
+        }
+        setLocalEmployees([...result]);
+    }
+
     // Define table headers = ["First name", "Last name"]
     const th = [
         { name: "First name", id: "firstName" },
@@ -44,8 +78,8 @@ function TableEmployees() {
                     {th.name}
                 </div>
                 <div className={styles.thIcons}>
-                    <i className="fa-solid fa-sort-up" data-cat="text" data-prop={th.id} order="ascending"></i>
-                    <i className="fa-solid fa-sort-down" data-cat="text" data-prop={th.id} order="descending"></i>
+                    <i className="fa-solid fa-sort-up" data-cat="text" data-prop={th.id} data-order="descending" onClick={sortData}></i>
+                    <i className="fa-solid fa-sort-down" data-cat="text" data-prop={th.id} data-order="ascending" onClick={sortData}></i>
                 </div>
             </div>
         </th>
