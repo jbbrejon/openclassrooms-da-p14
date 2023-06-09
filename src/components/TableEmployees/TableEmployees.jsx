@@ -30,6 +30,36 @@ function TableEmployees() {
         }
     }
 
+    // Define table headers = ["First name", "Last name"]
+    const th = [
+        { name: "First name", id: "firstName" },
+        { name: "Last name", id: "lastName" }
+    ]
+
+    // List of table headers elements
+    const thList = th.map((th) =>
+        <th className={styles.th} key={th.id}>
+            <div className={styles.thContainer}>
+                <div className={styles.thTitle}>
+                    {th.name}
+                </div>
+                <div className={styles.thIcons}>
+                    <i className="fa-solid fa-sort-up" data-cat="text" data-prop={th.id} order="ascending"></i>
+                    <i className="fa-solid fa-sort-down" data-cat="text" data-prop={th.id} order="descending"></i>
+                </div>
+            </div>
+        </th>
+    )
+
+    // List to table rows elements
+    const trList = localEmployees.map((employee) =>
+        <tr className={styles.tr} key={employee.id}>
+            <td className={styles.td}>{employee.firstName}</td>
+            <td className={styles.td}>{employee.lastName}</td>
+        </tr>
+    )
+
+
     console.log(localEmployees)
     return (
         <>
@@ -37,6 +67,16 @@ function TableEmployees() {
                 type="text" label="Search: " id="search" name="search"
                 change={e => { searchEmployee(e) }}
             />
+            <table className={styles.table}>
+                <thead className={styles.thead}>
+                    <tr className={styles.trhead}>
+                        {thList}
+                    </tr>
+                </thead>
+                <tbody className={styles.tbody}>
+                    {trList}
+                </tbody>
+            </table>
         </>
     )
 }
