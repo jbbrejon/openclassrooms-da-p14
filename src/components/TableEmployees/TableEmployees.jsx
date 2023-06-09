@@ -67,7 +67,10 @@ function TableEmployees() {
     // Define table headers = ["First name", "Last name"]
     const th = [
         { name: "First name", id: "firstName" },
-        { name: "Last name", id: "lastName" }
+        { name: "Last name", id: "lastName" },
+        { name: "Street", id: "street" },
+        { name: "City", id: "city" },
+        { name: "Zip Code", id: "zipCode" }
     ]
 
     // List of table headers elements
@@ -90,6 +93,9 @@ function TableEmployees() {
         <tr className={styles.tr} key={employee.id}>
             <td className={styles.td}>{employee.firstName}</td>
             <td className={styles.td}>{employee.lastName}</td>
+            <td className={styles.td}>{employee.street}</td>
+            <td className={styles.td}>{employee.city}</td>
+            <td className={styles.td}>{employee.zipCode}</td>
         </tr>
     )
 
