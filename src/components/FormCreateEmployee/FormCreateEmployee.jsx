@@ -21,6 +21,9 @@ function FormCreateEmployee() {
         id: uuidv4(),
         firstName: '',
         lastName: '',
+        street: '',
+        city: '',
+        zipCode: '',
     }
     const [employee, setEmployee] = useState(initialState);
 
@@ -63,6 +66,38 @@ function FormCreateEmployee() {
                     value={employee.lastName}
                     change={changeHandler}
                 />
+
+                <fieldset className={styles.fieldset}>
+                    <legend className={styles.legend}>Address</legend>
+                    <InputStandard
+                        type="text"
+                        label="Street"
+                        id="street"
+                        name="street"
+                        value={employee.street}
+                        change={changeHandler}
+                    />
+                    <InputStandard
+                        type="text"
+                        label="City"
+                        id="city"
+                        name="city"
+                        value={employee.city}
+                        change={changeHandler}
+                    />
+                    <InputStandard
+                        type="number"
+                        label="Zip Code"
+                        id="zip-code"
+                        name="zipCode"
+                        value={employee.zipCode}
+                        change={changeHandler}
+                    />
+
+                </fieldset>
+
+
+
                 <ButtonSave
                     status={!getIsFormValid()}
                     valid="Create Employee"
