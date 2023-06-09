@@ -6,7 +6,12 @@ import * as employeeListActions from '../../redux/slices/employeeListSlice'
 
 // Import components
 import InputStandard from '../InputStandard/InputStandard';
+import InputSelect from '../InputSelect/InputSelect';
 import ButtonSave from '../ButtonSave/ButtonSave';
+
+// Import data
+import departments from '../../data/departments';
+import states from '../../data/states';
 
 // Import CSS module
 import styles from './FormCreateEmployee.module.css'
@@ -23,7 +28,9 @@ function FormCreateEmployee() {
         lastName: '',
         street: '',
         city: '',
+        state: '',
         zipCode: '',
+        department: ''
     }
     const [employee, setEmployee] = useState(initialState);
 
@@ -31,13 +38,22 @@ function FormCreateEmployee() {
     function getIsFormValid() {
         return (
             employee.firstName &&
-            employee.lastName
+            employee.lastName &&
+            employee.street &&
+            employee.city &&
+            employee.zipCode &&
+            employee.department
         )
     }
 
     // Update employee properties
     function changeHandler(e) {
-        setEmployee({ ...employee, [e.target.name]: e.target.value });
+        if (e.target.name) {
+            setEmployee({ ...employee, [e.target.name]: e.target.value });
+        }
+        else {
+            setEmployee({ ...employee, [e.target.attributes.type.value]: e.target.attributes.name.value });
+        }
     }
 
     // Submit form
@@ -85,6 +101,15 @@ function FormCreateEmployee() {
                         value={employee.city}
                         change={changeHandler}
                     />
+
+                    <InputSelect
+                        label="States"
+                        type="state"
+                        options={states}
+                        value={employee.state}
+                        change={changeHandler}
+                    />
+
                     <InputStandard
                         type="number"
                         label="Zip Code"
@@ -93,10 +118,15 @@ function FormCreateEmployee() {
                         value={employee.zipCode}
                         change={changeHandler}
                     />
-
                 </fieldset>
 
-
+                <InputSelect
+                    label="Department"
+                    type="department"
+                    options={departments}
+                    value={employee.department}
+                    change={changeHandler}
+                />
 
                 <ButtonSave
                     status={!getIsFormValid()}
