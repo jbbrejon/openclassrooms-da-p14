@@ -5,3 +5,16 @@
     border: solid 1px lightgrey;
     border-radius: 5px;
 }
+
+.fieldset {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.legend {
+    color: #93AD18;
+}
