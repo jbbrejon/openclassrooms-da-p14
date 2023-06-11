@@ -7,6 +7,7 @@ import * as employeeListActions from '../../redux/slices/employeeListSlice'
 // Import components
 import InputStandard from '../InputStandard/InputStandard';
 import InputSelect from '../InputSelect/InputSelect';
+import InputDatePicker from '../InputDatePicker/InputDatePicker';
 import ButtonSave from '../ButtonSave/ButtonSave';
 
 // Import data
@@ -26,6 +27,8 @@ function FormCreateEmployee() {
         id: uuidv4(),
         firstName: '',
         lastName: '',
+        dateOfBirth: '',
+        startDate: '',
         street: '',
         city: '',
         state: '',
@@ -34,13 +37,18 @@ function FormCreateEmployee() {
     }
     const [employee, setEmployee] = useState(initialState);
 
+    console.log(employee)
+
     // Check if form is valid
     function getIsFormValid() {
         return (
             employee.firstName &&
             employee.lastName &&
+            employee.dateOfBirth &&
+            employee.startDate &&
             employee.street &&
             employee.city &&
+            employee.state &&
             employee.zipCode &&
             employee.department
         )
@@ -81,6 +89,20 @@ function FormCreateEmployee() {
                     name="lastName"
                     value={employee.lastName}
                     change={changeHandler}
+                />
+                <InputDatePicker
+                    id="birth-date"
+                    label="Date of Birth"
+                    change={setEmployee}
+                    object={employee}
+                    property="dateOfBirth"
+                />
+                <InputDatePicker
+                    id="start-date"
+                    label="Start Date"
+                    change={setEmployee}
+                    object={employee}
+                    property="startDate"
                 />
 
                 <fieldset className={styles.fieldset}>
