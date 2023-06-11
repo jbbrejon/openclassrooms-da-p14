@@ -7,6 +7,10 @@ import { selectEmployeeList } from '../../redux/selectors/selectors'
 
 // Import components
 import InputStandard from '../InputStandard/InputStandard'
+import InputSelect from '../InputSelect/InputSelect'
+
+// Import data
+import tableLengthOptions from '../../data/tableLengthOptions'
 
 // Import CSS module
 import styles from './TableEmployees.module.css'
@@ -16,6 +20,13 @@ function TableEmployees() {
     const employees = useSelector(selectEmployeeList)
     // Employees from local state (filtered, sorted)
     const [localEmployees, setLocalEmployees] = useState(employees)
+    const [tableLength, setTableLength] = useState(10)
+
+    function changeTableLength(e) {
+        setTableLength(e.target.attributes.name.value)
+    }
+
+
 
     // Search employees
     const searchEmployee = (e) => {
@@ -107,6 +118,13 @@ function TableEmployees() {
     console.log(localEmployees)
     return (
         <>
+            <InputSelect
+                label="Show entries"
+                type="tableLenght"
+                options={tableLengthOptions}
+                value={tableLength}
+                change={changeTableLength}
+            />
             <InputStandard
                 type="text" label="Search: " id="search" name="search"
                 change={e => { searchEmployee(e) }}
