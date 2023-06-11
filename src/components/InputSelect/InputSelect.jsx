@@ -52,7 +52,10 @@ InputSelect.propTypes = {
     label: PropTypes.string,
     type: PropTypes.string,
     options: PropTypes.array,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
     property: PropTypes.string,
     change: PropTypes.func,
 };
