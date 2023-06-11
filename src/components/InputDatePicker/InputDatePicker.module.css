@@ -1,0 +1,21 @@
+.label {
+    text-align: left;
+    margin: 10px 10px 5px 5px;
+}
+
+.datePicker {
+    display: flex;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border: solid 1px rgb(209, 206, 206);
+    border-radius: 5px;
+}
+
+.datePicker:focus {
+    outline: none;
+}
+
+.datePicker:hover {
+    border-color: #93AD18;
+}
