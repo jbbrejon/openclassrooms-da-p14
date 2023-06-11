@@ -79,7 +79,9 @@ function TableEmployees() {
     const th = [
         { name: "First name", id: "firstName" },
         { name: "Last name", id: "lastName" },
+        { name: "Start date", id: "startDate" },
         { name: "Department", id: "department" },
+        { name: "Date of Birth", id: "dateOfBirth" },
         { name: "Street", id: "street" },
         { name: "City", id: "city" },
         { name: "State", id: "state" },
@@ -106,7 +108,9 @@ function TableEmployees() {
         <tr className={styles.tr} key={employee.id}>
             <td className={styles.td}>{employee.firstName}</td>
             <td className={styles.td}>{employee.lastName}</td>
+            <td className={styles.td}>{employee.startDate}</td>
             <td className={styles.td}>{employee.department}</td>
+            <td className={styles.td}>{employee.dateOfBirth}</td>
             <td className={styles.td}>{employee.street}</td>
             <td className={styles.td}>{employee.city}</td>
             <td className={styles.td}>{employee.state}</td>
