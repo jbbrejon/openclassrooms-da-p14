@@ -60,3 +60,26 @@
     justify-content: center;
     align-items: center;
 }
+
+.tableBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.pagination i {
+    padding: 0 5px;
+    color: #5A6F07;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.pagination i:hover {
+    color: #93AD18;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+}
