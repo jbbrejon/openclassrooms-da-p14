@@ -23,9 +23,8 @@ function TableEmployees() {
     const [tableLength, setTableLength] = useState(10)
 
     function changeTableLength(e) {
-        setTableLength(e.target.attributes.name.value)
+        setTableLength(parseInt(e.target.attributes.name.value))
     }
-
 
 
     // Search employees
@@ -75,6 +74,10 @@ function TableEmployees() {
         setLocalEmployees([...result]);
     }
 
+
+
+
+
     // Define table headers = ["First name", "Last name"]
     const th = [
         { name: "First name", id: "firstName" },
@@ -121,18 +124,23 @@ function TableEmployees() {
 
     console.log(localEmployees)
     return (
-        <>
-            <InputSelect
-                label="Show entries"
-                type="tableLenght"
-                options={tableLengthOptions}
-                value={tableLength}
-                change={changeTableLength}
-            />
-            <InputStandard
-                type="text" label="Search: " id="search" name="search"
-                change={e => { searchEmployee(e) }}
-            />
+        <><div className={styles.filters}>
+            <div className={styles.tableLength}>
+                <InputSelect
+                    label="Show entries"
+                    type="tableLenght"
+                    options={tableLengthOptions}
+                    value={tableLength}
+                    change={changeTableLength}
+                />
+            </div>
+            <div className={styles.search}>
+                <InputStandard
+                    type="text" label="Search: " id="search" name="search"
+                    change={e => { searchEmployee(e) }}
+                />
+            </div>
+        </div>
             <table className={styles.table}>
                 <thead className={styles.thead}>
                     <tr className={styles.trhead}>
@@ -143,6 +151,14 @@ function TableEmployees() {
                     {trList}
                 </tbody>
             </table>
+            <div className={styles.tableBottom}>
+                <div className={styles.showing} >
+                    Showing {localEmployees.length} of {localEmployees.length} entries
+                </div>
+                <div className={styles.pagination}>
+                    <i className="fa-solid fa-circle-chevron-left"></i><i className="fa-solid fa-circle-chevron-right"></i>
+                </div>
+            </div>
         </>
     )
 }
