@@ -9,6 +9,7 @@ import InputStandard from '../InputStandard/InputStandard';
 import InputSelect from '../InputSelect/InputSelect';
 import InputDatePicker from '../InputDatePicker/InputDatePicker';
 import ButtonSave from '../ButtonSave/ButtonSave';
+import ModalConfirmation from '../ModalConfirmation/ModalConfirmation';
 
 // Import data
 import departments from '../../data/departments';
@@ -36,8 +37,12 @@ function FormCreateEmployee() {
         department: ''
     }
     const [employee, setEmployee] = useState(initialState);
+    const [displayModal, setDisplayModal] = useState(false)
 
-    console.log(employee)
+    // Toggle modal
+    function toggleModal() {
+        setDisplayModal(!displayModal)
+    }
 
     // Check if form is valid
     function getIsFormValid() {
@@ -69,6 +74,7 @@ function FormCreateEmployee() {
         e.preventDefault();
         dispatch(employeeListActions.addEmployee(employee));
         setEmployee(initialState);
+        toggleModal();
     }
 
     return (
@@ -156,6 +162,7 @@ function FormCreateEmployee() {
                     invalid="Please fill in all fields"
                 />
             </form>
+            {displayModal ? <ModalConfirmation message="Employee Created!" toggle={toggleModal} /> : null}
         </>
     )
 }
