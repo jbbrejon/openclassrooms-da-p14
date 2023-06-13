@@ -80,82 +80,87 @@ function FormCreateEmployee() {
     return (
         <>
             <form className={styles.form} onSubmit={submitHandler}>
-                <InputStandard
-                    type="text"
-                    label="First Name"
-                    id="first-name"
-                    name="firstName"
-                    value={employee.firstName}
-                    change={changeHandler}
-                />
-                <InputStandard
-                    type="text"
-                    label="Last Name"
-                    id="last-name"
-                    name="lastName"
-                    value={employee.lastName}
-                    change={changeHandler}
-                />
-                <InputDatePicker
-                    id="birth-date"
-                    label="Date of Birth"
-                    change={setEmployee}
-                    object={employee}
-                    property="dateOfBirth"
-                />
-                <InputDatePicker
-                    id="start-date"
-                    label="Start Date"
-                    change={setEmployee}
-                    object={employee}
-                    property="startDate"
-                />
+                <div className={styles.inputsContainer}>
+                    <div className={styles.formColumn}>
+                        <InputStandard
+                            type="text"
+                            label="First Name"
+                            id="first-name"
+                            name="firstName"
+                            value={employee.firstName}
+                            change={changeHandler}
+                        />
+                        <InputStandard
+                            type="text"
+                            label="Last Name"
+                            id="last-name"
+                            name="lastName"
+                            value={employee.lastName}
+                            change={changeHandler}
+                        />
+                        <InputDatePicker
+                            id="birth-date"
+                            label="Date of Birth"
+                            change={setEmployee}
+                            object={employee}
+                            property="dateOfBirth"
+                        />
+                        <InputDatePicker
+                            id="start-date"
+                            label="Start Date"
+                            change={setEmployee}
+                            object={employee}
+                            property="startDate"
+                        />
+                        <InputSelect
+                            label="Department"
+                            type="department"
+                            options={departments}
+                            value={employee.department}
+                            change={changeHandler}
+                        />
 
-                <fieldset className={styles.fieldset}>
-                    <legend className={styles.legend}>Address</legend>
-                    <InputStandard
-                        type="text"
-                        label="Street"
-                        id="street"
-                        name="street"
-                        value={employee.street}
-                        change={changeHandler}
-                    />
-                    <InputStandard
-                        type="text"
-                        label="City"
-                        id="city"
-                        name="city"
-                        value={employee.city}
-                        change={changeHandler}
-                    />
+                    </div>
+                    <div className={styles.formColumn}>
+                        <fieldset className={styles.fieldset}>
+                            <legend className={styles.legend}>Address</legend>
+                            <InputStandard
+                                type="text"
+                                label="Street"
+                                id="street"
+                                name="street"
+                                value={employee.street}
+                                change={changeHandler}
+                            />
+                            <InputStandard
+                                type="text"
+                                label="City"
+                                id="city"
+                                name="city"
+                                value={employee.city}
+                                change={changeHandler}
+                            />
 
-                    <InputSelect
-                        label="States"
-                        type="state"
-                        options={states}
-                        value={employee.state}
-                        change={changeHandler}
-                    />
+                            <InputSelect
+                                label="States"
+                                type="state"
+                                options={states}
+                                value={employee.state}
+                                change={changeHandler}
+                            />
 
-                    <InputStandard
-                        type="number"
-                        label="Zip Code"
-                        id="zip-code"
-                        name="zipCode"
-                        value={employee.zipCode}
-                        change={changeHandler}
-                    />
-                </fieldset>
+                            <InputStandard
+                                type="number"
+                                label="Zip Code"
+                                id="zip-code"
+                                name="zipCode"
+                                value={employee.zipCode}
+                                change={changeHandler}
+                            />
+                        </fieldset>
 
-                <InputSelect
-                    label="Department"
-                    type="department"
-                    options={departments}
-                    value={employee.department}
-                    change={changeHandler}
-                />
-
+                    </div>
+                </div>
                 <ButtonSave
                     status={!getIsFormValid()}
                     valid="Create Employee"
