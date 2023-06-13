@@ -124,23 +124,24 @@ function TableEmployees() {
 
     console.log(localEmployees)
     return (
-        <><div className={styles.filters}>
-            <div className={styles.tableLength}>
-                <InputSelect
-                    label="Show entries"
-                    type="tableLenght"
-                    options={tableLengthOptions}
-                    value={tableLength}
-                    change={changeTableLength}
-                />
+        <><div className={styles.tableContainer}>
+            <div className={styles.filters}>
+                <div className={styles.tableLength}>
+                    <InputSelect
+                        label="Show entries"
+                        type="tableLenght"
+                        options={tableLengthOptions}
+                        value={tableLength}
+                        change={changeTableLength}
+                    />
+                </div>
+                <div className={styles.search}>
+                    <InputStandard
+                        type="text" label="Search: " id="search" name="search"
+                        change={e => { searchEmployee(e) }}
+                    />
+                </div>
             </div>
-            <div className={styles.search}>
-                <InputStandard
-                    type="text" label="Search: " id="search" name="search"
-                    change={e => { searchEmployee(e) }}
-                />
-            </div>
-        </div>
             <table className={styles.table}>
                 <thead className={styles.thead}>
                     <tr className={styles.trhead}>
@@ -159,6 +160,7 @@ function TableEmployees() {
                     <i className="fa-solid fa-circle-chevron-left"></i><i className="fa-solid fa-circle-chevron-right"></i>
                 </div>
             </div>
+        </div>
         </>
     )
 }
