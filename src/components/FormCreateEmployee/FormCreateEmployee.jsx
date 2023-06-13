@@ -9,7 +9,8 @@ import InputStandard from '../InputStandard/InputStandard';
 import InputSelect from '../InputSelect/InputSelect';
 import InputDatePicker from '../InputDatePicker/InputDatePicker';
 import ButtonSave from '../ButtonSave/ButtonSave';
-import ModalConfirmation from '../ModalConfirmation/ModalConfirmation';
+import Modal from "@jbbrejon/react-modal";
+import '@jbbrejon/react-modal/dist/style.css'
 
 // Import data
 import departments from '../../data/departments';
@@ -167,7 +168,7 @@ function FormCreateEmployee() {
                     invalid="Please fill in all fields"
                 />
             </form>
-            {displayModal ? <ModalConfirmation message="Employee Created!" toggle={toggleModal} /> : null}
+            {displayModal ? <Modal message="Employee Created!" toggle={toggleModal} /> : null}
         </>
     )
 }
