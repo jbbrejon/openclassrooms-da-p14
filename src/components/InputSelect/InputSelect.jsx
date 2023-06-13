@@ -32,14 +32,14 @@ function InputSelect({ label, type, options, value, change }) {
             <div className={styles.label}>{label}</div>
             {displayOptions ?
                 <div className={styles.selectMenu} >
-                    <div className={styles.select} onClick={toggleOptions} onMouseOver={toggleOptions}>
+                    <div className={styles.select} onClick={toggleOptions} >
                         <div className={styles.value}>{value} </div>
                         <i className="fa-solid fa-chevron-up"></i></div>
                     <ul className={styles.ul} onMouseLeave={toggleOptions} onClick={toggleOptions} >{list}</ul>
                 </div>
                 :
                 <div className={styles.selectMenu}  >
-                    <div className={styles.select} onClick={toggleOptions} onMouseOver={toggleOptions}>
+                    <div className={styles.select} onClick={toggleOptions} >
                         <div className={styles.value}>{value} </div>
                         <i className="fa-solid fa-chevron-down"></i></div>
                 </div>
