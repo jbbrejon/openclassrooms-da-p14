@@ -83,3 +83,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+.tableContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+}
