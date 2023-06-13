@@ -26,6 +26,7 @@ const InputDatePicker = ({ id, label, property, object, change }) => {
                 closeOnScroll={true}
                 clearButtonClassName="clear-button"
                 required
+                id={id}
             />
         </>
 

@@ -12,7 +12,7 @@ function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.identity}>
-                <img src={logo} className={styles.logo} alt="logo" />
+                <img src={logo} className={styles.logo} alt="logo" width="110" height="110" />
                 <p className={styles.appName}>HRnet</p>
             </div>
             <nav className={styles.nav}>
