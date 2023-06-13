@@ -8,6 +8,7 @@ import { selectEmployeeList } from '../../redux/selectors/selectors'
 // Import components
 import InputStandard from '../InputStandard/InputStandard'
 import InputSelect from '../InputSelect/InputSelect'
+import Pagination from '../Pagination/Pagination'
 
 // Import data
 import tableLengthOptions from '../../data/tableLengthOptions'
@@ -20,10 +21,19 @@ function TableEmployees() {
     const employees = useSelector(selectEmployeeList)
     // Employees from local state (filtered, sorted)
     const [localEmployees, setLocalEmployees] = useState(employees)
-    const [tableLength, setTableLength] = useState(10)
+
+    const [itemsPerPage, setItemsPerPage] = useState(10)
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = localEmployees.slice(indexOfFirstItem, indexOfLastItem);
+    const nPages = Math.ceil(localEmployees.length / itemsPerPage)
+
+
 
     function changeTableLength(e) {
-        setTableLength(parseInt(e.target.attributes.name.value))
+        setItemsPerPage(parseInt(e.target.attributes.name.value))
     }
 
 
@@ -77,7 +87,6 @@ function TableEmployees() {
 
 
 
-
     // Define table headers = ["First name", "Last name"]
     const th = [
         { name: "First name", id: "firstName" },
@@ -107,7 +116,7 @@ function TableEmployees() {
     )
 
     // List to table rows elements
-    const trList = localEmployees.map((employee) =>
+    const trList = currentItems.map((employee) =>
         <tr className={styles.tr} key={employee.id}>
             <td className={styles.td}>{employee.firstName}</td>
             <td className={styles.td}>{employee.lastName}</td>
@@ -131,7 +140,7 @@ function TableEmployees() {
                         label="Show entries"
                         type="tableLenght"
                         options={tableLengthOptions}
-                        value={tableLength}
+                        value={itemsPerPage}
                         change={changeTableLength}
                     />
                 </div>
@@ -152,14 +161,13 @@ function TableEmployees() {
                     {trList}
                 </tbody>
             </table>
-            <div className={styles.tableBottom}>
-                <div className={styles.showing} >
-                    Showing {localEmployees.length} of {localEmployees.length} entries
-                </div>
-                <div className={styles.pagination}>
-                    <i className="fa-solid fa-circle-chevron-left"></i><i className="fa-solid fa-circle-chevron-right"></i>
-                </div>
-            </div>
+            <Pagination
+                currentItemsLength={localEmployees.slice(indexOfFirstItem, indexOfLastItem).length}
+                totalItemsLength={localEmployees.length}
+                nPages={nPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+            />
         </div>
         </>
     )
