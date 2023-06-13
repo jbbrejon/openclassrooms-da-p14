@@ -12,9 +12,21 @@
     border: solid 1px lightgrey;
     border-radius: 5px;
     padding: 20px;
-    margin-top: 20px;
 }
 
 .legend {
     color: #93AD18;
+}
+
+.inputsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.formColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 48%;
 }
