@@ -40,6 +40,8 @@
     width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding-top: 39px;
+    max-height: 250px;
+    overflow: auto;
 }
 
 .li {
