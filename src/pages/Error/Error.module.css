@@ -1,0 +1,18 @@
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(248, 73, 73);
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: grey;
+}
