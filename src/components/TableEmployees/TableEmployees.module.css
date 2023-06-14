@@ -91,3 +91,7 @@
     border: solid 1px lightgrey;
     border-radius: 5px;
 }
+
+.tableLength {
+    display: flex;
+}
