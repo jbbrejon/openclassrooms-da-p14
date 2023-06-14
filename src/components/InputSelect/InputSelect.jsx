@@ -5,6 +5,16 @@ import { useState } from 'react'
 // Import CSS module
 import styles from './InputSelect.module.css'
 
+/**
+ * InputSelect component.
+ *
+ * @param {string} label - Form entry label
+ * @param {string} type - Form entry type (text, number)
+ * @param {array} options - Array containing options to display
+ * @param {string, num } value - Value of input (string or number)
+ * @param {func} change - Function to update state of parent component
+ * @returns {JSX.Element} - Rendered component.
+ */
 function InputSelect({ label, type, options, value, change }) {
     // Local state (display options)
     const [displayOptions, setDisplayOptions] = useState(false);
@@ -48,6 +58,7 @@ function InputSelect({ label, type, options, value, change }) {
     )
 }
 
+// PropTypes
 InputSelect.propTypes = {
     label: PropTypes.string,
     type: PropTypes.string,

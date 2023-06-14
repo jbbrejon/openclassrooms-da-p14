@@ -16,28 +16,34 @@ import tableLengthOptions from '../../data/tableLengthOptions'
 // Import CSS module
 import styles from './TableEmployees.module.css'
 
+/**
+ * TableEmployees component.
+ * 
+ * @returns {JSX.Element} - Rendered component.
+ */
 function TableEmployees() {
     // Employees from Redux store
     const employees = useSelector(selectEmployeeList)
-    // Employees from local state (filtered, sorted)
+    // Local state (employees)
     const [localEmployees, setLocalEmployees] = useState(employees)
 
+    // Local state (pagination)
     const [itemsPerPage, setItemsPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(1);
 
+    // Variables for pagination
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = localEmployees.slice(indexOfFirstItem, indexOfLastItem);
     const nPages = Math.ceil(localEmployees.length / itemsPerPage)
 
-
-
+    // Change local state for pagination
     function changeTableLength(e) {
         setItemsPerPage(parseInt(e.target.attributes.name.value))
     }
 
 
-    // Search employees
+    // Search employee (all properties)
     const searchEmployee = (e) => {
         let searchResult = [];
         if (e.target.value.length > 0) {
@@ -50,6 +56,7 @@ function TableEmployees() {
         }
     }
 
+    // Sort employees (all properties, ascending or descending)
     const sortData = (e) => {
         const cat = e.target.dataset.cat;
         const prop = e.target.dataset.prop;
@@ -130,8 +137,6 @@ function TableEmployees() {
         </tr>
     )
 
-
-    console.log(localEmployees)
     return (
         <><div className={styles.tableContainer}>
             <div className={styles.filters}>

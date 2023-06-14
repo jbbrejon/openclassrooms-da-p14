@@ -5,6 +5,11 @@ import { useEffect } from "react"
 import Heading1 from "../../components/Heading1/Heading1";
 import FormCreateEmployee from "../../components/FormCreateEmployee/FormCreateEmployee";
 
+/**
+ * CreateEmployee component.
+ * 
+ * @returns {JSX.Element} - Rendered component.
+ */
 function CreateEmployee() {
     useEffect(() => {
         document.title = "HRnet - Create Employee";

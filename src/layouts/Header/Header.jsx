@@ -7,6 +7,11 @@ import logo from '../../assets/images/logo/logo.png'
 // Import CSS module
 import styles from './Header.module.css'
 
+/**
+ * Header component.
+ * 
+ * @returns {JSX.Element} - Rendered component.
+ */
 function Header() {
 
     return (

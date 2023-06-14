@@ -2,6 +2,10 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
+import Modal from "@jbbrejon/react-modal";
+import '@jbbrejon/react-modal/dist/style.css'
+
+// Import Redux actions
 import * as employeeListActions from '../../redux/slices/employeeListSlice'
 
 // Import components
@@ -9,8 +13,6 @@ import InputStandard from '../InputStandard/InputStandard';
 import InputSelect from '../InputSelect/InputSelect';
 import InputDatePicker from '../InputDatePicker/InputDatePicker';
 import ButtonSave from '../ButtonSave/ButtonSave';
-import Modal from "@jbbrejon/react-modal";
-import '@jbbrejon/react-modal/dist/style.css'
 
 // Import data
 import departments from '../../data/departments';
@@ -19,6 +21,11 @@ import states from '../../data/states';
 // Import CSS module
 import styles from './FormCreateEmployee.module.css'
 
+/**
+ * FromCreateEmployee component.
+ * 
+ * @returns {JSX.Element} - Rendered component.
+ */
 function FormCreateEmployee() {
 
     // Global state (new instance of useDispatch)
@@ -38,6 +45,8 @@ function FormCreateEmployee() {
         department: ''
     }
     const [employee, setEmployee] = useState(initialState);
+
+    // Local state (Display modal)
     const [displayModal, setDisplayModal] = useState(false)
 
     // Toggle modal

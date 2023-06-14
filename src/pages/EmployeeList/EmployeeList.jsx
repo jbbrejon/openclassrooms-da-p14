@@ -5,6 +5,11 @@ import { useEffect } from "react"
 import Heading1 from "../../components/Heading1/Heading1";
 import TableEmployees from "../../components/TableEmployees/TableEmployees";
 
+/**
+ * EmployeeList component.
+ * 
+ * @returns {JSX.Element} - Rendered component.
+ */
 function EmployeeList() {
     useEffect(() => {
         document.title = "HRnet - Employee List";

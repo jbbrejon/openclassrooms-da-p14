@@ -4,7 +4,15 @@ import PropTypes from 'prop-types';
 // Import CSS module
 import styles from './ButtonSave.module.css'
 
-// React component : Save button
+/**
+ * ButtonSave component.
+ *
+ * @param {bool} status - Button status.
+ * @param {string} valid - Message if form is valid.
+ * @param {string} invalid - Message if form is valid.
+ * @returns {JSX.Element} - Rendered component.
+ */
+
 function ButtonSave({ status, valid, invalid }) {
 
     return (
@@ -17,7 +25,7 @@ function ButtonSave({ status, valid, invalid }) {
         </>
     )
 }
-
+// PropTypes
 ButtonSave.propTypes = {
     status: PropTypes.bool,
     valid: PropTypes.string,

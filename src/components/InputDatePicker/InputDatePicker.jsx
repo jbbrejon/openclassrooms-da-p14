@@ -5,7 +5,16 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import styles from './InputDatePicker.module.css'
 
-
+/**
+ * DatePicker component.
+ *
+ * @param {string} label - Form entry label
+ * @param {string} id - Form entry id
+ * @param {string} property - Property name
+ * @param {object} object - Object to update
+ * @param {func} change - Function to update state of parent component
+ * @returns {JSX.Element} - Rendered component
+ */
 const InputDatePicker = ({ id, label, property, object, change }) => {
 
     const [displayedDate, setDisplayedDate] = useState("")
