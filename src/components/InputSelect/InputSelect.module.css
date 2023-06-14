@@ -6,6 +6,7 @@
     color: #424040;
     font-size: 16px;
     position: relative;
+    min-width: 100px;
 }
 
 .selectMenu:hover .select {
