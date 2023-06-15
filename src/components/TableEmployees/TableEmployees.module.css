@@ -85,8 +85,19 @@
     padding: 20px;
     border: solid 1px lightgrey;
     border-radius: 5px;
+    flex: 1;
 }
 
 .tableLength {
     display: flex;
+}
+
+.nodata {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: grey;
+    margin-top: auto;
+    margin-bottom: auto;
 }
