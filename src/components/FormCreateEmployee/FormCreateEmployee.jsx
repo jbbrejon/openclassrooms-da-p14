@@ -114,6 +114,7 @@ function FormCreateEmployee() {
                             change={setEmployee}
                             object={employee}
                             property="dateOfBirth"
+                            isSubmitted={displayModal}
                         />
                         <InputDatePicker
                             id="start-date"
@@ -121,6 +122,7 @@ function FormCreateEmployee() {
                             change={setEmployee}
                             object={employee}
                             property="startDate"
+                            isSubmitted={displayModal}
                         />
                         <InputSelect
                             label="Department"
