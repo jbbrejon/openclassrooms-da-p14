@@ -21,7 +21,6 @@ const InputDatePicker = ({ id, label, property, object, change, isSubmitted }) =
         isSubmitted ? setDisplayedDate("") : null
     }, [isSubmitted]);
 
-    console.log(isSubmitted)
     const [displayedDate, setDisplayedDate] = useState("")
 
     function handleChange(e) {
