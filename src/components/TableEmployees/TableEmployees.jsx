@@ -9,6 +9,7 @@ import { selectEmployeeList } from '../../redux/selectors/selectors'
 import InputStandard from '../InputStandard/InputStandard'
 import InputSelect from '../InputSelect/InputSelect'
 import Pagination from '../Pagination/Pagination'
+import Table from '../Table/Table'
 
 // Import data
 import tableLengthOptions from '../../data/tableLengthOptions'
@@ -156,16 +157,11 @@ function TableEmployees() {
                     />
                 </div>
             </div>
-            <table className={styles.table}>
-                <thead className={styles.thead}>
-                    <tr className={styles.trhead}>
-                        {thList}
-                    </tr>
-                </thead>
-                <tbody className={styles.tbody}>
-                    {trList}
-                </tbody>
-            </table>
+            <Table
+                thList={thList}
+                trList={trList}
+            />
+
             <Pagination
                 currentItemsLength={localEmployees.slice(indexOfFirstItem, indexOfLastItem).length}
                 totalItemsLength={localEmployees.length}
