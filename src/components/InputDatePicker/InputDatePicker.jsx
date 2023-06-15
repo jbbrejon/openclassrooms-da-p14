@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -15,8 +15,13 @@ import styles from './InputDatePicker.module.css'
  * @param {func} change - Function to update state of parent component
  * @returns {JSX.Element} - Rendered component
  */
-const InputDatePicker = ({ id, label, property, object, change }) => {
+const InputDatePicker = ({ id, label, property, object, change, isSubmitted }) => {
 
+    useEffect(() => {
+        isSubmitted ? setDisplayedDate("") : null
+    }, [isSubmitted]);
+
+    console.log(isSubmitted)
     const [displayedDate, setDisplayedDate] = useState("")
 
     function handleChange(e) {
@@ -48,6 +53,7 @@ InputDatePicker.propTypes = {
     property: PropTypes.string,
     object: PropTypes.object,
     change: PropTypes.func,
+    isSubmitted: PropTypes.bool
 };
 
 export default InputDatePicker;
