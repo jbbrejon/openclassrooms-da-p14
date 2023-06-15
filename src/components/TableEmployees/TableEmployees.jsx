@@ -139,38 +139,38 @@ function TableEmployees() {
     )
 
     return (
-        <><div className={styles.tableContainer}>
-            <div className={styles.filters}>
-                <div className={styles.tableLength}>
-                    <InputSelect
-                        label="Show entries"
-                        type="tableLenght"
-                        options={tableLengthOptions}
-                        value={itemsPerPage}
-                        change={changeTableLength}
-                    />
+        <div className={styles.tableContainer}>
+            {employees.length === 0 ? <div className={styles.nodata}>No data available in table</div> : <>
+                <div className={styles.filters}>
+                    <div className={styles.tableLength}>
+                        <InputSelect
+                            label="Show entries"
+                            type="tableLenght"
+                            options={tableLengthOptions}
+                            value={itemsPerPage}
+                            change={changeTableLength}
+                        />
+                    </div>
+                    <div className={styles.search}>
+                        <InputStandard
+                            type="text" label="Search: " id="search" name="search"
+                            change={e => { searchEmployee(e) }}
+                        />
+                    </div>
                 </div>
-                <div className={styles.search}>
-                    <InputStandard
-                        type="text" label="Search: " id="search" name="search"
-                        change={e => { searchEmployee(e) }}
-                    />
-                </div>
-            </div>
-            <Table
-                thList={thList}
-                trList={trList}
-            />
-
-            <Pagination
-                currentItemsLength={localEmployees.slice(indexOfFirstItem, indexOfLastItem).length}
-                totalItemsLength={localEmployees.length}
-                nPages={nPages}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-            />
+                <Table
+                    thList={thList}
+                    trList={trList}
+                />
+                <Pagination
+                    currentItemsLength={localEmployees.slice(indexOfFirstItem, indexOfLastItem).length}
+                    totalItemsLength={localEmployees.length}
+                    nPages={nPages}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
+            </>}
         </div>
-        </>
     )
 }
 
